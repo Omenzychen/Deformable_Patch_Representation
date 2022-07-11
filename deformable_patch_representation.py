@@ -105,14 +105,6 @@ def GaussianElimination(a, b):
     C = 1.0 * second_x * first_y - 1.0 * first_x * second_y
     return A, B, C
 
-def MultiAnchorDPR(centerx, centery, num_regions, h, w, r0, interval1, interval2, is_vis=False):
-    r1 = r0 + interval1
-    r2 = r1 + interval2
-    mask0 = SingleAnchorDPR(centerx, centery, r0, num_regions, h, w, is_vis)
-    mask1 = SingleAnchorDPR(centerx, centery, r1, num_regions, h, w, is_vis)
-    mask2 = SingleAnchorDPR(centerx, centery, r2, num_regions, h, w, is_vis)
-    mask = mask2 - mask1 + mask0
-    return mask
 
 
 if __name__ == '__main__':
